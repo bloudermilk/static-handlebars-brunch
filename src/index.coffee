@@ -1,6 +1,5 @@
 handlebars = require("handlebars")
 sysPath = require("path")
-mkdirp = require("mkdirp")
 fs = require("fs")
 glob = require("glob")
 
