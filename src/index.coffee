@@ -2,6 +2,7 @@ handlebars = require("handlebars")
 sysPath = require("path")
 fs = require("fs")
 glob = require("glob")
+mkdirp = require("mkdirp")
 
 module.exports = class StaticHandlebarsCompiler
   brunchPlugin: true
@@ -31,6 +32,8 @@ module.exports = class StaticHandlebarsCompiler
       @withPartials (partials) =>
         html = template({}, partials: partials, helpers: @makeHelpers(partials))
         newPath = "app/assets" + path.slice(13, -4) + ".html"
+
+        mkdirp.sync(sysPath.dirname(newPath))
 
         fs.writeFile newPath, html, (err) ->
           callback(err, null)
