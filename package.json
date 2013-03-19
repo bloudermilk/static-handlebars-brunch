@@ -1,0 +1,26 @@
+{
+  "name": "static-handlebars-brunch",
+  "version": "0.0.1",
+  "description": "Static handlebar files with brunch",
+  "author": {
+    "name": "Brendan Loudermilk (bloudermilk)"
+  },
+  "homepage": "https://github.com/bloudermilk/static-handlebars-brunch",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:bloudermilk/static-handlebars-brunch.git"
+  },
+  "main": "./lib/index",
+  "scripts": {
+  },
+  "engines": {
+    "node": "> 0.10.0"
+  },
+  "dependencies": {
+    "handlebars": "~ 1.0.10",
+    "mkdirp": "*",
+    "glob": "~ 3.1.21"
+  },
+  "devDependencies": {
+  }
+}
