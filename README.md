@@ -67,3 +67,8 @@ support. Feel free to send a pull request if you end up implementing any.
 * Cache partials (right now partials are recompiled up every time a file is
   changed).
 * Write tests
+
+## License
+
+static-handlebars-brunch is an open source project released under the MIT
+License. See `MIT-LICENSE` in the project root for more details.
