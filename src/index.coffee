@@ -39,8 +39,6 @@ module.exports = class StaticHandlebarsCompiler
     catch err
       callback err, null
 
-
-
   makeHelpers: (partials) ->
     partial: (partial, options) ->
       new handlebars.SafeString(
