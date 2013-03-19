@@ -1,7 +1,7 @@
 {
   "name": "static-handlebars-brunch",
-  "version": "0.0.1",
-  "description": "Static handlebar files with brunch",
+  "version": "0.1.0",
+  "description": "Compile Handlebar templates to HTML with brunch",
   "author": {
     "name": "Brendan Loudermilk (bloudermilk)"
   },
@@ -18,7 +18,6 @@
   },
   "dependencies": {
     "handlebars": "~ 1.0.10",
-    "mkdirp": "*",
     "glob": "~ 3.1.21"
   },
   "devDependencies": {

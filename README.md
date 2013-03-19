@@ -5,6 +5,22 @@ Handlebars as a build-time templating engine. This is useful if you have many
 "static" pages that need the ability to include partials or other dynamic
 content at build time.
 
+## Installation
+
+Add `static-handlebars-brunch` to your `package.json` file:
+
+```json
+"dependencies": {
+  "static-handlebars-brunch": "~ 0.1.0"
+}
+```
+
+And install dependecies.
+
+```bash
+$ npm install
+```
+
 ## How it works
 
 Any `.hbs` file found in `app/templates` will be compiled to `.html` and copied
@@ -18,7 +34,7 @@ for example: `app/templates/_header.hbs`.
 You can use the standard Handlebars partial helper to include partials in a
 template:
 
-```handlebars
+```hbs
 {{> header}}
 
 <p>This is a page!</p>
@@ -28,6 +44,14 @@ template:
 
 A custom partial helper is available which allows you to pass variables to your
 partials.
+
+```hbs
+{{partial "header" title="My great page}}
+
+<p>This is a page!</p>
+
+{{> "footer"}}
+```
 
 ## TODO
 
