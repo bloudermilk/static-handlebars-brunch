@@ -46,7 +46,7 @@ A custom partial helper is available which allows you to pass variables to your
 partials.
 
 ```hbs
-{{partial "header" title="My great page}}
+{{partial "header" title="My great page"}}
 
 <p>This is a page!</p>
 
