@@ -14,31 +14,40 @@ module.exports = class StaticHandlebarsCompiler
 
   withPartials: (callback) ->
     partials = {}
+    errThrown = false
 
     glob "app/templates/_*.hbs", (err, files) =>
-      files.forEach (file) ->
-        name = sysPath.basename(file, ".hbs").substr(1)
+      if err?
+        callback(err)
+      else
+        files.forEach (file) ->
+          name = sysPath.basename(file, ".hbs").substr(1)
 
-        fs.readFile file, (err, data) ->
-          throw err if err?
+          fs.readFile file, (err, data) ->
+            if err? and !errThrown
+              errThrown = true
+              callback(err)
+            else
+              partials[name] = data.toString()
 
-          partials[name] = data.toString()
-
-          callback(partials) if Object.keys(partials).length == files.length
+              callback(null, partials) if Object.keys(partials).length == files.length
 
   compile: (data, path, callback) ->
     try
       basename = sysPath.basename(path, ".hbs")
       template = handlebars.compile(data)
 
-      @withPartials (partials) =>
-        html = template({}, partials: partials, helpers: @makeHelpers(partials))
-        newPath = "app/assets" + path.slice(13, -4) + ".html"
+      @withPartials (err, partials) =>
+        if err?
+          callback(err)
+        else
+          html = template({}, partials: partials, helpers: @makeHelpers(partials))
+          newPath = "app/assets" + path.slice(13, -4) + ".html"
 
-        mkdirp.sync(sysPath.dirname(newPath))
+          mkdirp.sync(sysPath.dirname(newPath))
 
-        fs.writeFile newPath, html, (err) ->
-          callback(err, null)
+          fs.writeFile newPath, html, (err) ->
+            callback(err, null)
 
     catch err
       callback err, null

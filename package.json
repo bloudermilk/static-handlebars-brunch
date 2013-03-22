@@ -1,6 +1,6 @@
 {
   "name": "static-handlebars-brunch",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Compile Handlebar templates to HTML with brunch",
   "author": {
     "name": "Brendan Loudermilk (bloudermilk)"
