@@ -20,6 +20,8 @@ module.exports = class StaticHandlebarsCompiler
         name = sysPath.basename(file, ".hbs").substr(1)
 
         fs.readFile file, (err, data) ->
+          throw err if err?
+
           partials[name] = data.toString()
 
           callback(partials) if Object.keys(partials).length == files.length
