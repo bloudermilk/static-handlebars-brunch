@@ -10,7 +10,7 @@ module.exports = class StaticHandlebarsCompiler
   extension: "hbs"
 
   constructor: (@config) ->
-    return
+    @outputDirectory = @config?.plugins?.staticHandlebars?.outputDirectory || 'public'
 
   withPartials: (callback) ->
     partials = {}
@@ -42,7 +42,7 @@ module.exports = class StaticHandlebarsCompiler
           callback(err)
         else
           html = template({}, partials: partials, helpers: @makeHelpers(partials))
-          newPath = "app/assets" + path.slice(13, -4) + ".html"
+          newPath = @outputDirectory + path.slice(13, -4) + ".html"
 
           mkdirp.sync(sysPath.dirname(newPath))
 

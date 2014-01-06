@@ -53,6 +53,19 @@ partials.
 {{> "footer"}}
 ```
 
+## Configuration
+
+### Output directory
+
+You can customize the output directory (default: `app/assets`)
+
+```coffee
+exports.config =
+  plugins:
+    staticHandlebars:
+      outputDirectory: 'app/another_directory'
+```
+
 ## TODO
 
 This library has a long way to go in terms of configurability and compatability
@@ -60,13 +73,19 @@ with other workflows. The following are known features which we would like to
 support. Feel free to send a pull request if you end up implementing any.
 
 * Support a custom source path (ie. `app/templates`).
-* Support a custom compilation path (ie. `app/assets`).
 * Play nicely with `handlebars-brunch` (ie. figure out how to support both
   plugins in one app).
 * Support custom extensions (only `.hbs` is supported now).
 * Cache partials (right now partials are recompiled up every time a file is
   changed).
 * Write tests
+
+## Contribution
+
+* Fork this repository
+* Create a feature branch on your fork
+* Recompile the coffeescript: `coffee -c -o lib/ src/index.coffee`
+* Make a Pull Request
 
 ## License
 
