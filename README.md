@@ -7,19 +7,10 @@ content at build time.
 
 ## Installation
 
-Add `static-handlebars-brunch` to your `package.json` file:
+`npm install --save static-handlebars-brunch`
 
-```json
-"dependencies": {
-  "static-handlebars-brunch": "~ 0.1.0"
-}
-```
+This will add it to your package.json file and install the package automatically.
 
-And install dependecies.
-
-```bash
-$ npm install
-```
 
 ## How it works
 
