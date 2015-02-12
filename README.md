@@ -57,6 +57,38 @@ exports.config =
       outputDirectory: 'app/another_directory'
 ```
 
+### Additional project-specific configuration
+
+You can set the context and configure Handlebars in your project by using an extra file (default: `./staticHandlebarsExtras.js` in your projects root directory).
+
+```coffee
+exports.config =
+  plugins:
+    staticHandlebars:
+      includeFile: 'app/another_directory'
+```
+
+The file may look like this:
+```coffee
+/*
+  Parameters:
+  - handlebars -> reference to the handlebars object
+  
+  Returns:
+  - context -> object which represents the context in which the templates will be executed
+*/
+
+module.exports = function(handlebars) {
+  var context = {
+    color: 'blue'
+  };
+  
+  // make calls on the 'handlebars'-variable to define additional helpers etc.
+  
+  return context;
+};
+```
+
 ## TODO
 
 This library has a long way to go in terms of configurability and compatability
