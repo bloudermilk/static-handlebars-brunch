@@ -25,6 +25,8 @@ module.exports = class StaticHandlebarsCompiler
     glob "app/templates/_*.hbs", (err, files) =>
       if err?
         callback(err)
+      else if (!files.length)
+        callback(null, partials)
       else
         files.forEach (file) ->
           name = sysPath.basename(file, ".hbs").substr(1)
